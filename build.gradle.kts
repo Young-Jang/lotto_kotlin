@@ -23,7 +23,9 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("org.projectlombok:lombok:1.18.18")
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign:3.1.1")
+
+
     implementation("org.projectlombok:lombok:1.18.18")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("com.h2database:h2")
@@ -42,19 +44,7 @@ dependencies {
     annotationProcessor ("org.mapstruct:mapstruct-processor:1.4.2.Final")
 
     //openfeign
-    implementation ("com.googlecode.json-simple")
-
     implementation ("org.apache.commons:commons-lang3:3.12.0")
-    implementation ("com.google.code.gson")
-
-    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
-
-}
-
-dependencyManagement {
-    imports {
-        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("Hoxton.SR3")}")
-    }
 }
 
 tasks.withType<KotlinCompile> {
