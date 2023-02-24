@@ -1,12 +1,15 @@
 package luckytime.lotto_kotlin.application
 
 import lombok.RequiredArgsConstructor
-import luckytime.lotto_kotlin.domain.repository.LottoRepository
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
 @Service
 @RequiredArgsConstructor
 class LottoService() {
+
+    private val logger = LoggerFactory.getLogger(javaClass)
+
     fun createLottoNumber(count: Int): List<String> {
         val lottoList = mutableListOf<String>()
         for (j in 0 until count) {
