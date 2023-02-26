@@ -18,7 +18,12 @@ class LottoController(private val lottoService: LottoService) {
     private val logger = LoggerFactory.getLogger(javaClass)
 
     @GetMapping("get-lucky-number")
-    fun getLotto(@RequestParam count: Int): ResponseEntity<*> {
+    fun getLuckyNumber(@RequestParam count: Int): ResponseEntity<*> {
         return ResponseEntity.ok().body(GetLuckyNumRspDTO(lottoService.createLottoNumber(count)))
+    }
+
+    @GetMapping("get-lotto-number")
+    fun getLottoNumber(@RequestParam drwNo: Int): ResponseEntity<*> {
+        return ResponseEntity.ok().body(lottoService.getLottoNumber(drwNo))
     }
 }
