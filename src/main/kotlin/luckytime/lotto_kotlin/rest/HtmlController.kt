@@ -19,10 +19,6 @@ class LottoController(private val lottoService: LottoService) {
 
     @GetMapping("get-lucky-number")
     fun getLotto(@RequestParam count: Int): ResponseEntity<*> {
-        logger.info("getLuckyNumber{}", count)
-
-        val getLuckyNumRspDTO = GetLuckyNumRspDTO(lottoService.createLottoNumber(count))
-        logger.info("getLuckyNumber{}", getLuckyNumRspDTO.toString())
-        return ResponseEntity.ok().body(getLuckyNumRspDTO)
+        return ResponseEntity.ok().body(GetLuckyNumRspDTO(lottoService.createLottoNumber(count)))
     }
 }

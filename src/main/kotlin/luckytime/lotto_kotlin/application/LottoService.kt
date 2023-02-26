@@ -21,9 +21,9 @@ class LottoService() {
     private fun getLottoString(): String {
         val checkSameNumber = mutableSetOf<Int>()
         for (i in 0 until 6) {
-            var luckyNumber = (Math.random() * 45 + 1).toInt()
+            var luckyNumber = getRandomNum()
             while (checkSameNumber.contains(luckyNumber)) {
-                luckyNumber = (Math.random() * 45 + 1).toInt()
+                luckyNumber = getRandomNum()
             }
             checkSameNumber.add(luckyNumber)
         }
@@ -32,6 +32,10 @@ class LottoService() {
 
     private fun buildPrettyString(lotto: Set<Int>): String {
         return lotto.sorted().joinToString(separator = "-", prefix = "[", postfix = "]") { it.toString() }
+    }
+
+    private fun getRandomNum(): Int {
+        return (Math.random() * 45 + 1).toInt();
     }
 
 }
