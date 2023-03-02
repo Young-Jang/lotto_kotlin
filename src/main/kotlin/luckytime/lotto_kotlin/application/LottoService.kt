@@ -1,12 +1,13 @@
 package luckytime.lotto_kotlin.application
 
 import lombok.RequiredArgsConstructor
+import luckytime.lotto_kotlin.domain.repository.LottoRepository
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
 @Service
 @RequiredArgsConstructor
-class LottoService() {
+class LottoService(private val lottoRepository: LottoRepository) {
 
     private val logger = LoggerFactory.getLogger(javaClass)
 
@@ -36,6 +37,10 @@ class LottoService() {
 
     private fun getRandomNum(): Int {
         return (Math.random() * 45 + 1).toInt();
+    }
+
+    fun getLottoNumber(drwNo: Int): String {
+        return lottoRepository.getLottoNum(drwNo)
     }
 
 }
