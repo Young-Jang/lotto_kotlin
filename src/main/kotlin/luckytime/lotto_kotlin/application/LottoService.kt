@@ -12,6 +12,7 @@ class LottoService(private val lottoRepository: LottoRepository) {
     private val logger = LoggerFactory.getLogger(javaClass)
 
     fun createLottoNumber(count: Int): List<String> {
+        logger.info("[createLottoNumber] 로또 번호 생성 시작 {}개",count)
         val lottoList = mutableListOf<String>()
         for (j in 0 until count) {
             lottoList.add(getLottoString())
